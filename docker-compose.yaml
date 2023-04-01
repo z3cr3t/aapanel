@@ -1,0 +1,21 @@
+
+version: '3.3'
+
+services:
+
+    aapanel:
+        image: 'aapanel/aapanel:lib'
+        container_name: aapanel
+        restart: unless-stopped        
+        ports:
+            - '8200:7800'
+            - '21:21'
+            - '443:443'
+            - '80:80'
+            - '888:888'
+        volumes:
+            - ./website_data:/www/wwwroot
+            - ./mysql_data:/www/server/data
+            - ./vhost:/www/server/panel/vhost
+            
+          
